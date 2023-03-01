@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> coversions file</title>
+    </head>
+ 
+<body>
+    <h1> Sai Balaji Gadi shows currency conversions</h1>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">Enter base amount</label>
+    <input type ="number" id="Base_value" name="form1_age" value=50> <br>
+
+    <label for="form1_nick">Enter the conversion rate </label>
+    <input type ="number" id="conversion_value" name="form1_nick" value=35> <br>
+
+    <input type="button" onclick="convert()" value="Show conversions">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function convert(){
+    console.log("Getting form values")
+    base_value = document.getElementById("Base_value").value
+    conversion_value = document.getElementById("conversion_value").value
+    conversion_value=conversion_value*base_value
+    var toShow=""
+    toShow+=base_value+" is "+Math.round(conversion_value*100)/100+"; "
+    for (var i=2;i<=5;i++){
+        base_value*=2
+        conversion_value*=2
+        toShow+=base_value+" is "+Math.round(conversion_value*100)/100+"; "
+    }
+    out = document.getElementById("result")
+    out.innerHTML="Conversions are: "+toShow
+}
+</script>
+
+</body>
+</html> 
