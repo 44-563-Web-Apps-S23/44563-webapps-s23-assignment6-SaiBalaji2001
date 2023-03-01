@@ -20,7 +20,7 @@
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result">The values are displayed here </p>
 
 <script> 
 
@@ -38,6 +38,50 @@ function convert(){
     }
     out = document.getElementById("result")
     out.innerHTML="Conversions are: "+toShow
+}
+</script>
+<form>
+    
+    <input type ="radio" id="average" name="conditions" onclick="chooseOp()" value="mean"> 
+    <label for="form1_age">average</label><br>
+
+    <input type ="radio" id="maximum" name="conditions" onclick="chooseOp()" value="maximum">
+    <label for="form1_age">max</label><br>
+
+    <input type ="radio" id="minimum" name="conditions" onclick="chooseOp()" value="minimum">
+    <label for="form1_age">min</label><br>
+</form>
+
+
+<p id="result1">This results will be displayed here</p>
+
+<script> 
+
+function chooseOp (){
+    console.log("Getting form values")
+    base_value = document.getElementById("Base_value").value
+    conversion_value = document.getElementById("conversion_value").value
+    averagecheck = document.getElementById("average").checked
+    maxcheck = document.getElementById("maximum").checked
+    mincheck = document.getElementById("minimum").checked
+    if(averagecheck==true){
+        out = document.getElementById("result1")
+        out.innerHTML="average value of "+base_value+" and "+conversion_value+" is "+(+conversion_value+ +base_value)/2
+    }else if(maxcheck==true){
+        out = document.getElementById("result1")
+        if(conversion_value > base_value){
+        out.innerHTML="maximum value of "+base_value+" and "+conversion_value+" is "+conversion_value
+        }else{
+            out.innerHTML="maximum value of "+base_value+" and "+conversion_value+" is "+base_value
+        }
+    }else if(mincheck==true){
+        out = document.getElementById("result1")
+        if(conversion_value<base_value){
+        out.innerHTML="minimum value of "+base_value+" and "+conversion_value+" is "+conversion_value
+        }else{
+            out.innerHTML="minimum value of "+base_value+" and "+conversion_value+" is "+base_value
+        }
+    }
 }
 </script>
 
