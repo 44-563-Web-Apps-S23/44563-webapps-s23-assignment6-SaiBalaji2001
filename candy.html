@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>candys file</title>
+    </head>
+<body>
+    <h1>Sai Balaji Gadi chooses candy</h1>
+
+<h2>Getting input</h2>
+
+<form>
+
+    <input type ="checkbox" id="dark_chocolate" name="candy1"  value=true>
+    <label for="form1_age">Dark Chocolate</label><br>
+
+    <input type ="checkbox" id="nuts" name="candy2"  value=true>
+    <label for="form1_age">Nuts</label><br>
+
+    <input type ="checkbox" id="chewy" name="candy3"  value=false>
+    <label for="form1_age">Chewy</label><br>
+
+    <input type="button" onclick=selectBox() value="Select a box">
+</form>
+
+
+<p id="result">The output values are displayed here </p>
+
+<script> 
+var my_candy_box={}
+function  selectBox(){
+    console.log("Getting form values")
+    my_candy_box={}
+    my_candy_box.dark_chocolate=document.getElementById("dark_chocolate").checked
+    my_candy_box.nuts=document.getElementById("nuts").checked
+    my_candy_box.chewy=document.getElementById("chewy").checked
+    out = document.getElementById("result")
+    out.innerHTML=JSON.stringify(my_candy_box)
+    
+}
+</script>
+
+</body>
+</html> 
